@@ -1,0 +1,193 @@
+
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>goosh!</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+
+  <style type="text/css">
+    body {
+      font-family: 'Assistant', sans-serif;
+    	color:#000000;
+   	  background-image: url("image/bob.gif");
+ 	 background-repeat: repeat;
+    }
+    .bg {
+    	width: 350px;
+    	background-color: rgba(255, 255, 255, 0.8);
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="welcum">
+	<img src="image/website.gif">
+
+</div>
+
+<div class="bg">
+	<h1>Make your ACNH OC</h1>
+
+	<input id="species-checkbox" type="checkbox" onclick="toggleSpecies()">
+		<label for="species-checkbox">Remove species</label> <br>
+	<input id="style-checkbox" type="checkbox" onclick="toggleStyle()">
+		<label for="style-checkbox">Remove style</label> <br>
+	<input id="personality-checkbox" type="checkbox" onclick="togglePersonality()">
+		<label for="personality-checkbox">Remove personality</label> <br>
+	<input id="color-checkbox" type="checkbox" onclick="toggleColor()">
+		<label for="color-checkbox">Remove color</label> <br>
+	<input id="action-checkbox" type="checkbox" onclick="toggleAction()">
+		<label for="action-checkbox">Remove action</label> <br><br/>
+
+	 <button type="button" onclick="generate()">Generate your villager</button> 
+
+	<div id="species"> </div>
+	<div id="style"> </div>
+	<div id="personality"> </div>
+	<div id="color"> </div>
+	<div id="action"> </div>
+</div>
+
+
+  <script>
+  	var animalType = ["dog", "cat", "mouse", "horse", "frog", "deer", "wolf", "octopus", "alligator", "anteater", "bird", "eagle", "elephant", "hamster", "kangaroo", "lion", "monkey", "penguin", "sheep", "squirrel", "tiger"];
+var actionType = ["fishing", "singing", "weight-lifting", "Naruto running", "stretching", "bug catching", 
+              "smelling flowers", "investigating with a magnifying glass", "crafting", "sleeping",
+             "sitting", "gaming", "flirting with you", "eating junk food", "trying on clothes", "shopping",
+             "falling into a pitfall", "shaking a tree", "watering plants", "littering", "crying", "listening to music",
+             "reading a book", "reading manga", "using a shovel", "decorating their house", "writing fanfiction",
+             "taking selfies", "studying", "cooking"];
+var personalityType = ["lazy", "jock", "cranky", "smug", "normal", "peppy", "snooty", "uchi"];
+var colorType = ["monochrome", "pastel", "neon and fluorescent", "earthy and natural", 
+             "primary colors", "CMYK colors", "dark neutrals", "muted purples", 
+             "ccomplementary colors", "bright red and blue", "night-sky colors", "Christmas colors",
+             "all black", "mismatching oranges", "rainbow", "bright blues", "unnatural blonde", "gold and black",
+             "light pink and brown", "the colors on your shirt"];
+var styleType = ["sporty", "cutesy", "dramatic", "historic", "flashy", 
+             "emo", "modern", "expensive", "formal", "weeb", "eboy/egirl", "hipster", "scene",
+             "boomer", "techie", "clashing", "school uniform", "depression", "avant garde"];
+
+var rspeciesType;
+var speciesDiv = document.getElementById('species');
+var speciesText;
+var ractionType;
+var actionDiv = document.getElementById('action');
+var actionText;
+var rpersonalityType;
+var personalityDiv = document.getElementById('personality');
+var personalityText;
+var rcolorType;
+var colorDiv = document.getElementById('color');
+var colorText;
+var rstyleType;
+var styleDiv = document.getElementById('style');
+var styleText;
+var removedMessage = "";
+
+function toggleSpecies() {
+	// Get the checkbox
+  var isChecked = document.getElementById("species-checkbox").checked;
+  if (isChecked) {
+	speciesDiv.innerHTML = removedMessage;
+  } else {
+  	speciesDiv.innerHTML = speciesText;
+  }
+}
+
+function toggleAction() {
+	// Get the checkbox
+  var isChecked = document.getElementById("action-checkbox").checked;
+  if (isChecked) {
+	actionDiv.innerHTML = removedMessage;
+  } else {
+  	actionDiv.innerHTML = actionText;
+  }
+}
+
+function toggleStyle() {
+	// Get the checkbox
+  var isChecked = document.getElementById("style-checkbox").checked;
+  if (isChecked) {
+	styleDiv.innerHTML = removedMessage;
+  } else {
+  	styleDiv.innerHTML = styleText;
+  }
+}
+
+function togglePersonality() {
+	// Get the checkbox
+  var isChecked = document.getElementById("personality-checkbox").checked;
+  if (isChecked) {
+	personalityDiv.innerHTML = removedMessage;
+  } else {
+  	personalityDiv.innerHTML = personalityText;
+  }
+}
+
+function toggleColor() {
+	// Get the checkbox
+  var isChecked = document.getElementById("color-checkbox").checked;
+  if (isChecked) {
+	colorDiv.innerHTML = removedMessage;
+  } else {
+  	colorDiv.innerHTML = colorText;
+  }
+}
+
+function generate() {
+	var isSpeciesChecked = document.getElementById("species-checkbox").checked;
+	if (isSpeciesChecked) {
+		speciesDiv.innerHTML = removedMessage;
+	} else {
+		rspeciesType = animalType[Math.floor(Math.random()*animalType.length)];
+		speciesText = "Your villager's species is <b>"+rspeciesType+"</b>";
+		speciesDiv.innerHTML = speciesText;
+	}
+
+	var isActionChecked = document.getElementById("action-checkbox").checked;
+	if (isActionChecked) {
+		actionDiv.innerHTML = removedMessage;
+	} else {
+		ractionType = actionType[Math.floor(Math.random()*actionType.length)];
+		actionText = "Your villager's action is "+ractionType;
+		actionDiv.innerHTML = "Your villager's action is <b>"+ractionType+"</b>";
+	}
+
+	var isStyleChecked = document.getElementById("style-checkbox").checked;
+	if (isStyleChecked) {
+		styleDiv.innerHTML = removedMessage;
+	} else {
+		ractionType = styleType[Math.floor(Math.random()*styleType.length)];
+		styleText = "Your villager's style is "+ractionType;
+		styleDiv.innerHTML = "Your villager's style is <b>"+ractionType+"</b>";
+	}
+
+	var isPersonaChecked = document.getElementById("personality-checkbox").checked;
+	if (isPersonaChecked) {
+		personaDiv.innerHTML = removedMessage;
+	} else {
+		rpersonaType = personalityType[Math.floor(Math.random()*personalityType.length)];
+		personaText = "Your villager's style is "+rpersonalityType;
+		personalityDiv.innerHTML = "Your villager's style is <b>"+rpersonaType+"</b>";
+	}
+
+	var isColorChecked = document.getElementById("color-checkbox").checked;
+	if (isColorChecked) {
+		colorDiv.innerHTML = removedMessage;
+	} else {
+		rcolorType = colorType[Math.floor(Math.random()*colorType.length)];
+		colorText = "Your villager's color is "+rcolorType;
+		colorDiv.innerHTML = "Your villager's color is <b>"+rcolorType+"</b>";
+	}
+
+}
+
+  </script>
+</body>
+
+
+
+</html>
