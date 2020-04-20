@@ -54,7 +54,7 @@
 
   <script>
   	var animalType = ["dog", "cat", "mouse", "horse", "frog", "deer", "wolf", "octopus", "alligator", "anteater", "bird", "eagle", "elephant", "hamster", "kangaroo", "lion", "monkey", "penguin", "sheep", "squirrel", "tiger"];
-var actionType = ["fishing", "singing", "weight-lifting", "Naruto running", "stretching", "bug catching", 
+var actionType = ["fishing", "singing", "weight-lifting", "Naruto running", "stretching", "bug catching", "cooking",
               "smelling flowers", "investigating with a magnifying glass", "crafting", "sleeping",
              "sitting", "gaming", "flirting with you", "eating junk food", "trying on clothes", "shopping",
              "falling into a pitfall", "shaking a tree", "watering plants", "littering", "crying", "listening to music",
@@ -170,8 +170,8 @@ function generate() {
 		personaDiv.innerHTML = removedMessage;
 	} else {
 		rpersonaType = personalityType[Math.floor(Math.random()*personalityType.length)];
-		personaText = "Your villager's style is "+rpersonalityType;
-		personalityDiv.innerHTML = "Your villager's style is <b>"+rpersonaType+"</b>";
+		personaText = "Your villager's personality is "+rpersonalityType;
+		personalityDiv.innerHTML = "Your villager's personality is <b>"+rpersonaType+"</b>";
 	}
 
 	var isColorChecked = document.getElementById("color-checkbox").checked;
